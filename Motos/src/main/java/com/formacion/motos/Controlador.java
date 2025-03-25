@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class Controlador {
 
     @GetMapping("/")
-    public String mostrarLogin() {
-        return "login";  // Busca login.jsp en /WEB-INF/views/
+    public String inicio(Model model) {
+        return "login"; // Esto buscará WEB-INF/jsp/login.jsp
     }
 
     @PostMapping("/login")
     public String login(@RequestParam String email, @RequestParam String password, Model model) {
         model.addAttribute("email", email);
         model.addAttribute("password", password);
-        return "login"; // Asegúrate de que el nombre coincida con el JSP
+        return "login";
     }
 }
